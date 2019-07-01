@@ -9,6 +9,7 @@
         <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
         <link rel="stylesheet" href="./css/font.css">
         <link rel="stylesheet" href="./css/xadmin.css">
+        <link rel="stylesheet" href="./css/rotate.css">
         <script src="./lib/layui/layui.js" charset="utf-8"></script>
         <script type="text/javascript" src="./js/xadmin.js"></script>
     </head>
@@ -88,9 +89,13 @@
                     </div>
 
                     <div class="layui-form-item">
+                        <label class="lafite_special_label_name">
+                            <span>相关附件</span>（营业执照副本、机构代码证、法人代表身份证（盖章）、经办人授权委托书（盖章）、经办人身份证、公司章程（盖章）、股东会决议（盖章）董事会决议（盖章））
+                        </label>
+                    </div>
+
+                    <div class="layui-form-item">
                         <label class="layui-form-label">
-                            <span>*</span>
-                            相关附件（营业执照副本、机构代码证、法人代表身份证（盖章）、经办人授权委托书（盖章）、经办人身份证、公司章程（盖章）、股东会决议（盖章）董事会决议（盖章））
                         </label>
                         <div class="layui-upload">
                             <!-- <button type="button" class="layui-btn lafite_btn" id="lafite_upload">点击上传</button>  -->
@@ -98,11 +103,14 @@
                                 <div class="layui-upload-list" id="demo2">
                                     <img class="layui-upload-img" src="./images/demo.jpg"/>
                                     <img class="layui-upload-img" src="./images/demo.jpg"/>
+                                    <img class="layui-upload-img" src="./images/demo.jpg"/>
+                                    <img class="layui-upload-img" src="./images/demo.jpg"/>
                                 </div>
                             <!-- </blockquote> -->
                         </div>
                     </div>
 
+                    
                      <div class="layui-form-item">
                         <label class="layui-form-label">
                             <span>*</span>
@@ -112,7 +120,10 @@
                             <!-- <button type="button" class="layui-btn lafite_btn" id="lafite_upload">点击上传</button>  -->
                             <!-- <blockquote class="layui-elem-quote layui-quote-nm" style="margin-top: 10px; margin-left: 5%"> -->
                                 <div class="layui-upload-list" id="demo2">
-                                    <img class="layui-upload-img" src="./images/demo.jpg"/>
+                                    <a href="javascript:void(0)" data-magnify="gallery" data-group="g1" data-src="./images/demo.jpg" data-caption="测试图片一">
+                                        <img class="layui-upload-img" src="./images/demo.jpg"/>
+                                    </a>
+                                    
                                     <img class="layui-upload-img" src="./images/demo.jpg"/>
                                     <img class="layui-upload-img" src="./images/demo.jpg"/>
                                     <img class="layui-upload-img" src="./images/demo.jpg"/>
@@ -178,7 +189,12 @@
             </div>
         </div>
     </body>
-    <script>layui.use(['laydate', 'form', 'upload'],
+    
+    
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/rotate.js"></script>
+    <script src="./js/jquery.rotate.min.js"></script>
+    <script>layui.use(['jquery', 'laydate', 'form', 'upload'],
         function() {
             var $ = layui.jquery
             ,upload = layui.upload;
@@ -200,35 +216,105 @@
                 }
             });
 
-            function previewImg(Url) {
-                var img = new Image();  
-                img.src = Url;
-                var height = img.height; //获取图片高度
-                var width = img.width; //获取图片宽度
-                var imgHtml = "<img src='" + Url + "' />";  
-                //弹出层
-                layer.open({  
-                    type: 1,  
-                    shade: 0.8,
-                    offset: 'auto',
-                    area: [width + 'px',height+'px'],
-                    shadeClose:true,//点击外围关闭弹窗
-                    scrollbar: false,//不现实滚动条
-                    title: "图片预览", //不显示标题  
-                    content: imgHtml, //捕获的元素，注意：最好该指定的元素要存放在body最外层，否则可能被其它的相对元素所影响  
-                    cancel: function () {  
-                        //layer.msg('捕获就是从页面已经存在的元素上，包裹layer的结构', { time: 5000, icon: 6 });  
-                    }  
-                }); 
-            }
 
-            $("#demo2 img").click(function() {
-                previewImg($(this).attr("src"));
+            $('[data-magnify]').Magnify({
+                Toolbar: [
+                    'prev',
+                    'next',
+                    'rotateLeft',
+                    'rotateRight',
+                    'zoomIn',
+                    'actualSize',
+                    'zoomOut'
+                ],
+                keyboard:true,
+                draggable:false,
+                movable:true,
+                modalSize:[800,600],
+                beforeOpen:function (obj,data) {
+                    console.log('beforeOpen')
+                },
+                opened:function (obj,data) {
+                    console.log('opened')
+                },
+                beforeClose:function (obj,data) {
+                    console.log('beforeClose')
+                },
+                closed:function (obj,data) {
+                    console.log('closed')
+                },
+                beforeChange:function (obj,data) {
+                    console.log('beforeChange')
+                },
+                changed:function (obj,data) {
+                    console.log('changed')
+                }
             });
+            // function previewImg(Url) {
+            //     var img = new Image();  
+            //     img.src = Url;
+            //     var height = img.height; //获取图片高度
+            //     var width = img.width; //获取图片宽度
+            //     var imgHtml = "<img src='" + Url + "' />";  
+            //     //弹出层
+            //     layer.open({  
+            //         type: 1,  
+            //         shade: 0.8,
+            //         offset: 'auto',
+            //         area: [width + 'px',height+'px'],
+            //         shadeClose:true,//点击外围关闭弹窗
+            //         scrollbar: false,//不现实滚动条
+            //         title: "图片预览", //不显示标题  
+            //         content: imgHtml, //捕获的元素，注意：最好该指定的元素要存放在body最外层，否则可能被其它的相对元素所影响  
+            //         cancel: function () {  
+            //             //layer.msg('捕获就是从页面已经存在的元素上，包裹layer的结构', { time: 5000, icon: 6 });  
+            //         }  
+            //     }); 
+            // }
+
+            // $("#demo2 img").click(function() {
+            //     previewImg($(this).attr("src"));
+            // });
 
         });
         
 
     </script>
-
+    <!-- <script>
+        $(function() {
+            $('[data-magnify]').Magnify({
+                Toolbar: [
+                    'prev',
+                    'next',
+                    'rotateLeft',
+                    'rotateRight',
+                    'zoomIn',
+                    'actualSize',
+                    'zoomOut'
+                ],
+                keyboard:true,
+                draggable:false,
+                movable:true,
+                modalSize:[800,600],
+                beforeOpen:function (obj,data) {
+                    console.log('beforeOpen')
+                },
+                opened:function (obj,data) {
+                    console.log('opened')
+                },
+                beforeClose:function (obj,data) {
+                    console.log('beforeClose')
+                },
+                closed:function (obj,data) {
+                    console.log('closed')
+                },
+                beforeChange:function (obj,data) {
+                    console.log('beforeChange')
+                },
+                changed:function (obj,data) {
+                    console.log('changed')
+                }
+            });
+        })
+    </script> -->
 </html>

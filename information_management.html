@@ -19,7 +19,57 @@
                     <div class="layui-card">
                         <div class="layui-card-body ">
                             <form class="layui-form layui-col-space5">
-                                 <div class="layui-input-inline layui-show-xs-block">
+
+                                <div class="layui-form-item">
+                                    <div class="layui-inline">
+                                    <label class="layui-form-label">姓名</label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" name="ids" placeholder="姓名" autocomplete="off" class="layui-input">
+                                    </div>
+                                    </div>
+                                    <div class="layui-inline">
+                                    <label class="layui-form-label">验证日期</label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" name="date" id="date" lay-verify="date" placeholder="yyyy-MM-dd" autocomplete="off" class="layui-input">
+                                    </div>
+                                    </div>
+                                    <div class="layui-inline">
+                                    <label class="layui-form-label">验证链接</label>
+                                    <div class="layui-input-inline">
+                                        <input type="tel" name="url" lay-verify="url" autocomplete="off" class="layui-input">
+                                    </div>
+                                    </div>
+                                </div>
+
+                                <div class="layui-form-item">
+                                    
+                                    <div class="layui-inline">
+                                    <label class="layui-form-label">验证日期</label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" name="date" id="date" lay-verify="date" placeholder="yyyy-MM-dd" autocomplete="off" class="layui-input">
+                                    </div>
+                                    </div>
+                                    <div class="layui-inline">
+                                    <label class="layui-form-label">验证链接</label>
+                                    <div class="layui-input-inline">
+                                        <input type="tel" name="url" lay-verify="url" autocomplete="off" class="layui-input">
+                                    </div>
+                                    </div>
+
+                                    <div class="layui-inline">
+                                   <button class="layui-btn lafite_search_btn" lay-submit="" lay-filter="sreach">
+                                        查询
+                                    </button>
+                                    </div>
+
+                                    <div class="layui-inline">
+                                            <button class="layui-btn lafite_blue_btn" type="reset" lay-submit="">
+                                                    重置
+                                                </button>
+                                    </div>
+                                </div>
+
+                                 <!-- <div class="layui-input-inline layui-show-xs-block">
                                     <input type="text" name="ids" placeholder="姓名" autocomplete="off" class="layui-input">
                                 </div>
                                 <div class="layui-input-inline layui-show-xs-block">
@@ -58,7 +108,7 @@
                                     </button>
                                 </div>
                             </form>
-                        </div>
+                        </div> -->
                 
                         <div class="layui-card-body">
                             <table class="layui-table layui-form">

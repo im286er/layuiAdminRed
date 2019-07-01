@@ -967,3 +967,154 @@ table th, table td {
     /* .layui-layer-setwin .layui-layer-min cite {
         background: white !important;
     } */
+
+    /* 点击生成账号 */
+    .lafite_create_btn  {
+        width: 140px;
+        height: 40px;
+        text-align: center;
+        background: #FFE2E1;
+        border-radius: 91px;
+        line-height: 40px;
+        font-size: 14px;
+        color: #D91715;
+        margin-left: 20%;
+        cursor: pointer;
+    }
+
+    /* 新增特殊label_name */
+    .lafite_special_label_name {
+        display: block;
+        font-size: 14px;
+        color: #3F3F3F;
+        width: 650px;
+        padding: 9px 15px;
+    }
+        .lafite_special_label_name span {
+            color: black;
+        }
+
+    /* 移除弹窗的 X */
+    /* .layui-layer-setwin .layui-layer-close1 {
+        display: none !important;
+    } */
+
+    /* disabled 样式 */
+    input:disabled{
+        color: #c5c5c5;
+    }
+
+    .lafite_search_btn {
+        background: #D91715;
+    }
+
+
+    /* 后台登录页面 */
+    .lafite_login {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+    }
+        .login_bg {
+            width: 100%;
+            height: 100%;
+        }
+        .login_font {
+            /* position: fixed; */
+            width: 284px;
+            /* left: 0; */
+            /* right: 0; */
+            /* top: 120px; */
+            margin-left: calc(50% - 142px);
+            margin-bottom: 45px;
+        }
+    .login_mian {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 50%;
+        height: 600px;
+        margin: auto;
+    }
+    .login_con {
+        /* position: fixed; */
+        width: 540px;
+        height: 400px;
+        background: rgba(255,255,255,.5);
+        /* left: 0; */
+        /* top: 210px; */
+        /* bottom: 0; */
+        /* right: 0; */
+        border-radius: 6px;
+        margin: auto;
+    }
+        .login_con_title {
+            font-size: 20px;
+            padding-top: 30px;
+            text-align: center;
+            color: white;
+        }
+    .login_con input {
+        width: 420px;
+        height: 60px;
+        margin-left: 61.5px;
+        background: #FFFFFF;
+        border: 1px solid #DEDEDE;
+        box-shadow: inset 0 1px 1px 0 #EAE9E9;
+        border-radius: 6px;
+        text-indent: 50px;
+        margin-top: 30px;
+    }
+    .input_icon {
+        position: absolute;
+        font-size: 25px !important;
+        left: 75px;
+        top: 46px;
+        color: #D91715;
+    }
+        .loign_name span {
+            position: absolute;
+            left: 75px;
+            bottom: -22px;
+            display: inline-block;
+            width: 100%;
+            font-size: 12px;
+            color: #FFFFFF;
+        }
+        .loign_name span i {
+            font-size: 12px;
+            color: #D91715;
+        }
+        .forget_pwd {
+            z-index: 66;;
+            position: relative;
+            width: 420px;
+            margin-left: 61.5px;
+            text-align: right;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+            .forget_pwd a {
+                color: #FFFFFF;
+            }
+    .loign_name {
+        position: relative;
+    }
+        .login_submiit {
+            width: 420px;
+            margin-left: 61.5px;
+            height: 60px;
+            background: #D91715;
+            border-radius: 6px;
+            font-size: 18px;
+            color: #FFFFFF;
+            letter-spacing: 6.9px;
+            line-height: 60px;
+            text-align: center;
+            margin-top: 35px;
+            cursor: pointer;
+        }

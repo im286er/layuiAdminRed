@@ -193,6 +193,11 @@
                         <legend>生成账号</legend>
                     </fieldset>
 
+                    <!-- 2019.5.20新增button -->
+                    <div class="layui-form-item">
+                        <div class="lafite_create_btn">点击生成账号</div>
+                    </div>
+
                     <div class="layui-form-item">
                         <label class="layui-form-label">
                             账号
@@ -257,14 +262,21 @@
             // 百度地图API功能
             var map = new BMap.Map("lafite_map");
             var point = new BMap.Point(116.331398,39.897445);
-            map.centerAndZoom(point,12);
-
-            function myFun(result){
+            var city = "";    // 后台地区名 传参
+            if(city != ""){
+			    map.centerAndZoom(city,11);      // 用城市名设置地图中心点
+		    }else {
+                map.centerAndZoom(point,12);
+                function myFun(result){
                 var cityName = result.name;
                 map.setCenter(cityName);
+                }
+                var myCity = new BMap.LocalCity();
+                myCity.get(myFun);
             }
-            var myCity = new BMap.LocalCity();
-            myCity.get(myFun);
+            
+
+           
             function showInfo(e){
                 $(".lafite_default_map").val(e.point.lng+','+e.point.lat);
             }

@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="./css/xadmin.css">
         <!-- <link rel="stylesheet" href="./css/theme5.css"> -->
         <script src="./lib/layui/layui.js" charset="utf-8"></script>
+        <!-- <script src="./lib/layui/layui.all.js"></script> -->
         <script type="text/javascript" src="./js/xadmin.js"></script>
         <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
         <!--[if lt IE 9]>
@@ -400,8 +401,28 @@
         function() {
             var $ = layui.jquery
             
-            $(".layui-tab-title li").click(function() {
-                console.log($(this));
+            $("body").delegate(".layui-tab-title li","click",function() {
+                console.log($(this).context.childNodes[0].data);
+                var Len = $("#nav li a cite").length;
+                var Index;
+                for(var i = 0; i < Len; i++) {
+                    if($(this).context.childNodes[0].data == $("#nav li a cite").eq(i).text()) {
+                        Index = i;
+                    }
+                    // console.log($("#nav li a cite").eq(i).text());
+                }
+                console.log(Index);
+                console.log($("#nav li a cite").eq(Index).parentsUntil("#nav"));
+                // 左侧菜单初始化
+                $('.left-nav').find('a').removeClass('active');
+                $("#nav li a cite").eq(Index).parentsUntil("#nav").eq(3).siblings().children('.sub-menu').stop(true,true).slideUp();
+                $("#nav li a cite").eq(Index).parentsUntil("#nav").eq(3).siblings().find('.nav_right').html('&#xe697;');
+                $("#nav li a cite").eq(Index).parentsUntil("#nav").eq(3).removeClass("open");
+
+                $("#nav li a cite").eq(Index).parentsUntil("#nav").eq(0).addClass("active");
+                $("#nav li a cite").eq(Index).parentsUntil("#nav").eq(3).addClass("open");
+                $("#nav li a cite").eq(Index).parentsUntil("#nav").eq(3).find('.nav_right').html('&#xe6a6;');
+                $("#nav li a cite").eq(Index).parentsUntil("#nav").eq(2).stop(true,true).slideDown();
             });
         });
 
